@@ -17,7 +17,7 @@ phases:
       -python pytest -v tests/ --junitxml=tests/junit.xml  
       
       -python pytest --cov=tests/
-      -python pytest tests/ --cov=tests/ --cov-report=xml
+      -python pytest --cov=tests/ --cov-report=tests/coverage.xml
       
       
       
@@ -28,7 +28,9 @@ reports:
     files:
       - junit.xml
     base-directory: tests
-    file-format: JUNITXML 
+    file-format: JUNITXML
+    files:
+      - 
     
  
 
