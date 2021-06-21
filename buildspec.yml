@@ -17,7 +17,8 @@ phases:
       -python pytest -v tests/ --junitxml=tests/junit.xml  
       
       -python pytest --cov=tests/
-      -pycobertura show --format html --output tests/coverage.html coverage.xml
+      -python pytest tests/ --cov=tests/ --cov-report=xml
+      
       
       
       
@@ -28,6 +29,7 @@ reports:
       - junit.xml
     base-directory: tests
     file-format: JUNITXML 
+    
  
 
  
