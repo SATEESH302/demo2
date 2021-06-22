@@ -13,7 +13,7 @@ phases:
       - mkdir test-reports
   build:
     commands:
-      - pytest --cov=tests/ --JACOCOXML=tests/junit1.xml 
+      - pytest --cov=tests/ --Cobertura XML=tests/junit1.xml 
 
       - pytest -v tests/ --junitxml=tests/junit.xml  
 
@@ -29,6 +29,6 @@ reports:
     files:
       - junit1.xml
     base-directory: tests
-    file-format: JACOCOXML 
+    file-format: Cobertura XML
    
        
