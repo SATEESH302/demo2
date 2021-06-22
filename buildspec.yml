@@ -8,27 +8,24 @@ phases:
       
       - pip3 install -r tests/requirements.txt
       - pip3 install pytest
-      - pip3 install pytest-cov
-     
+      - pip install pytest-cov
+      - pip freeze
       - mkdir test-reports
   build:
     commands:
-      
-      - pytest -v tests/ --junitxml=tests/junit.xml
-       
+      - python pytest -v tests/ --junitxml=tests/junit.xml  
+      - python pytest --cov
+      - python pytest --cov=tests/
+    
+      - pytest --cov
+      - pytest --cov=tests/
+      - coverage html
+
 
 
 reports:
   pytest_reports:
     files:
-      - junit1.xml
+      - junit.xml
     base-directory: tests
     file-format: JUNITXML 
-reports:
-  arn:aws:codebuild:us-east-2:491926007348:report-group/demopycov:
-    files:
-      - junit1.xml
-    base-directory: tests
-    file-format: Cobertura XML
-   
-       
