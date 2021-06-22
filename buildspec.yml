@@ -21,7 +21,7 @@ phases:
 reports:
   pytest_reports:
     files:
-      - junit.xml
+      - junit1.xml
     base-directory: tests
     file-format: JUNITXML 
 reports:
