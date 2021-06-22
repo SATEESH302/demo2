@@ -7,48 +7,26 @@ phases:
   pre_build:
     commands:
       
-      - pip install --upgrade pip
+      - pip3 install -r tests/requirements.txt
+      - pip3 install pytest
       - pip install pytest-cov
-      
-      - pip install -r tests/requirements.txt
-      - rm -rf dspt
+      - pip install pycobertura
       - mkdir test-reports
   build:
     commands:
-      - python pytest -v tests/ --junitxml=tests/junit.xml 
-      - python pytest --cov  tests/ --junitxml=tests/junit1.xml
-      - pytest 
-        --html=test-reports/report.html 
-        --self-contained-html
-        -s
-        -v
-        --cov=dspt 
-        --cov-report=html:test-reports/coverage 
-        --junitxml=test-reports/junit.xml 
-        --log-file=test-reports/logs.txt 
-        tests
-  post_build:
-    commands:
-      - echo Build completed on `date`
+      -python pytest -v tests/ --junitxml=tests/junit.xml  
+      
+      
+      
+      
+      
 
 reports:
-  coverage:
+  pytest_reports:
     files:
-      - "coverage/*"
-    base-directory: 'test-reports'
-    discard-paths: yes
-  report:
+      - junit.xml
+    base-directory: tests
+    file-format: JUNITXML
     files:
-      - 'junit.xml'
-      - 'report.html'
-      - 'assets/*'
-    base-directory: 'test-reports'
-    discard-paths: yes
-    file-format: JunitXml
-
-
+      - 
     
- 
-
- 
-
