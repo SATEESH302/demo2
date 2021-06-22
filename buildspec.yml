@@ -1,5 +1,4 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -10,24 +9,26 @@ phases:
       - pip3 install -r tests/requirements.txt
       - pip3 install pytest
       - pip install pytest-cov
-      - pip install pycobertura
+      - pip freeze
       - mkdir test-reports
   build:
     commands:
-      -python pytest -v tests/ --junitxml=tests/junit.xml  
-      
-      
-      
-      
-      
+      - python pytest -v tests/ --junitxml=tests/junit.xml  
+      - python pytest --cov
+      - python pytest --cov=tests/
+    
+      - pytest --cov
+      - pytest --cov=tests/
+      - coverage html
+
+
 
 reports:
   pytest_reports:
     files:
       - junit.xml
     base-directory: tests
-    file-format: JUNITXML
-    files:
+    file-format: JUNITXML 
       
    
        
