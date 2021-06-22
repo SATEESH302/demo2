@@ -29,6 +29,6 @@ reports:
     files:
       - junit1.xml
     base-directory: tests
-    file-format: JUNITXML 
+    file-format: JACOCOXML 
    
        
