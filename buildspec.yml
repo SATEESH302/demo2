@@ -31,10 +31,5 @@ reports:
     file-format: JUNITXML
     files:
       - 
-   demopycov:
-     files:
-       -coverage.xml
-     base-directory: tests
-     file-format: JUNITXML
-     files:
+   
        
