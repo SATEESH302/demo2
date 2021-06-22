@@ -13,7 +13,7 @@ phases:
       - mkdir test-reports
   build:
     commands:
-      - pytest --cov=tests/ --junitxml=tests/junit.xml 
+      - pytest --cov=tests/ --junitxml=tests/junit1.xml 
 
       - python pytest -v tests/ --junitxml=tests/junit.xml  
 
@@ -27,7 +27,7 @@ reports:
 reports:
   arn:aws:codebuild:us-east-2:491926007348:report-group/demopycov:
     files:
-      - cov.xml
+      - junit1.xml
     base-directory: tests
     file-format: JUNITXML 
    
