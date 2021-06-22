@@ -8,12 +8,15 @@ phases:
     commands:
       
       - pip install --upgrade pip
+      - pip install pytest-cov
       
       - pip install -r tests/requirements.txt
       - rm -rf dspt
       - mkdir test-reports
   build:
     commands:
+      - python pytest -v tests/ --junitxml=tests/junit.xml 
+      - python pytest --cov  tests/ --junitxml=tests/junit1.xml
       - pytest 
         --html=test-reports/report.html 
         --self-contained-html
