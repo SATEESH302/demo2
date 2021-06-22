@@ -14,9 +14,10 @@ phases:
       - mkdir test-reports
   build:
     commands:
-      -python pytest -v tests/ --junitxml=tests/junit.xml 
+      -python pytest -v tests/ --junitxml=tests/junit.xml  
       
-      
+      -python pytest --cov=tests/
+      -python pytest --cov=tests/ --cov-report=tests/coverage.xml
       
       
       
@@ -29,6 +30,11 @@ reports:
     base-directory: tests
     file-format: JUNITXML
     files:
-  
       - 
-    
+   demopycov:
+     files:
+       -coverage.xml
+     base-directory: tests
+     file-format: JUNITXML
+     files:
+       
