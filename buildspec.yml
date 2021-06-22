@@ -14,7 +14,7 @@ phases:
   build:
     commands:
       
-      - python pytest -v tests/ --junitxml=tests/junit.xml
+      - pytest -v tests/ --junitxml=tests/junit.xml
        
 
 
