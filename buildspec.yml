@@ -15,7 +15,7 @@ phases:
     commands:
       - pytest --cov=tests/ --junitxml=tests/junit1.xml 
 
-      - python pytest -v tests/ --junitxml=tests/junit.xml  
+      - pytest -v tests/ --junitxml=tests/junit.xml  
 
 
 reports:
